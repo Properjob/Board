@@ -1,0 +1,38 @@
+﻿<Window x:Class="Board.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Board"
+        mc:Ignorable="d"
+        Title="MainWindow" AllowsTransparency="True" WindowStyle="None" MouseLeave="Window_MouseLeave" Topmost="True" ResizeMode="CanResizeWithGrip">
+    <Window.Background>
+        <SolidColorBrush x:Name="scbWindowBackground" Opacity="0" Color="White"/>
+    </Window.Background>
+    <Window.Resources>
+        <ControlTemplate x:Key="CircularButton" TargetType="Button">
+            <Grid>
+                <Ellipse Width="{TemplateBinding Height}" Height="{TemplateBinding Width}" Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}"/>
+                <TextBlock Foreground="{TemplateBinding Foreground}" FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <ContentPresenter/>
+                </TextBlock>
+            </Grid>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Frame x:Name="frameMain" Grid.Column="0" Margin="10" Visibility="Collapsed" NavigationUIVisibility="Hidden" BorderThickness="0" Background="Transparent">
+
+        </Frame>
+        <StackPanel Grid.Column="1" Margin="10">
+            <Button x:Name="btnMain" Template="{StaticResource CircularButton}" Width="75" Content="&#xE8C8;" FontFamily="Segoe MDL2 Assets" FontSize="38" Background="DodgerBlue" Foreground="White" BorderBrush="White" Margin="5" MouseEnter="btnMain_MouseEnter" PreviewMouseLeftButtonDown="btnMain_PreviewMouseLeftButtonDown"/>
+            <Button x:Name="btnShowCB" Template="{StaticResource CircularButton}" Width="50" Content="&#xE8FD;" FontFamily="Segoe MDL2 Assets" FontSize="26" Background="White" Foreground="DodgerBlue" BorderBrush="DodgerBlue" Margin="5" Visibility="Collapsed" Click="btnShowCB_Click"/>
+            <Button x:Name="btnSettings" Template="{StaticResource CircularButton}" Width="50" Content="&#xE713;" FontFamily="Segoe MDL2 Assets" FontSize="26" Background="White" Foreground="DodgerBlue" BorderBrush="DodgerBlue" Margin="5" Visibility="Collapsed" Click="btnSettings_Click"/>
+            <Button x:Name="btnRecord" Template="{StaticResource CircularButton}" Width="50" Content="&#xE7C8;" FontFamily="Segoe MDL2 Assets" FontSize="26" Background="White" Foreground="Red" BorderBrush="DodgerBlue" Margin="5" Visibility="Collapsed" Click="btnRecord_Click"/>
+            <Button x:Name="btnExit" Template="{StaticResource CircularButton}" Width="50" Content="&#xE711;" FontFamily="Segoe MDL2 Assets" FontSize="26" Background="White" Foreground="Red" BorderBrush="Red" Margin="5" Visibility="Collapsed" Click="btnExit_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
